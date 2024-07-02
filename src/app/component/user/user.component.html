@@ -1,0 +1,59 @@
+<div *ngIf="!showForm"> <!-- Mostra solo quando showForm è falso -->
+  <h2>User List</h2>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Email</th>
+        <th>Anno di Nascita</th>
+        <th>Password</th>
+        <th>Codice Fiscale</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.nome }}</td>
+        <td>{{ user.cognome }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ formatDate(user.anno_nascita) }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.cf }}</td>
+        <td>
+          <button class="btn-delete" (click)="deleteUser(user.id)">Delete</button>
+          <button class="btn-update" (click)="updateUser(user)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn-add" (click)="addUser()">Add User</button>
+  <button class="btn-add" (click)="navigateToRegistration()">Go to Registration</button>
+</div>
+
+<!-- Modal or Form for Add/Update User -->
+<div *ngIf="showForm" class="user-form">
+  <h3>{{ isUpdate ? 'Update User' : 'Add User' }}</h3>
+  <form (ngSubmit)="onSubmit()">
+    <label for="nome">Nome:</label>
+    <input id="nome" [(ngModel)]="selectedUser.nome" name="nome" required>
+    
+    <label for="cognome">Cognome:</label>
+    <input id="cognome" [(ngModel)]="selectedUser.cognome" name="cognome" required>
+    
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="selectedUser.email" name="email" required>
+
+    <label for="anno_nascita">Anno di Nascita:</label>
+    <input id="anno_nascita" type="date" [(ngModel)]="selectedUser.anno_nascita" name="anno_nascita" required>
+  
+    <label for="password">Password:</label>
+    <input id="password" type="password" [(ngModel)]="selectedUser.password" name="password" required>
+
+    <label for="cf">Codice Fiscale:</label>
+    <input id="cf" [(ngModel)]="selectedUser.cf" name="cf" required>
+    
+    <button type="submit" class="btn-submit">{{ isUpdate ? 'Update' : 'Add' }}</button>
+    <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
+  </form>
+</div>

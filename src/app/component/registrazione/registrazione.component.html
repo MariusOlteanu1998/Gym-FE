@@ -1,0 +1,30 @@
+<div class="registration-form">
+    <h2>Registrazione</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" [(ngModel)]="user.nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="cognome">Cognome:</label>
+        <input id="cognome" type="text" [(ngModel)]="user.cognome" name="cognome" required>
+      </div>
+      <div class="form-group">
+        <label for="anno_nascita">Anno di Nascita:</label>
+        <input id="anno_nascita" type="date" [(ngModel)]="user.anno_nascita" name="anno_nascita" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" [(ngModel)]="user.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="password" type="password" [(ngModel)]="user.password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="cf">Codice Fiscale:</label>
+        <input id="cf" type="text" [(ngModel)]="user.cf" name="cf" required>
+      </div>
+      <button type="submit" class="btn-submit">Registrati</button>
+    </form>
+  </div>
