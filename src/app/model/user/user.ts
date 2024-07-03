@@ -1,3 +1,5 @@
+import { Scheda } from "../scheda/scheda";
+
 export class User {
     id: number;
     nome: string;
@@ -6,8 +8,19 @@ export class User {
     email: string;
     password: string;
     cf: string;
+    scheda: Scheda[];
   
-    constructor(id: number, nome: string, cognome: string, anno_nascita: string, email: string, password: string, cf: string) {
+    constructor(
+    id: number,
+    nome: string, 
+    cognome: string, 
+    anno_nascita: string, 
+    email: string,
+    password: string, 
+    cf: string, 
+    scheda: Scheda[]
+    ) 
+    {
       this.id = id;
       this.nome = nome;
       this.cognome = cognome;
@@ -15,6 +28,7 @@ export class User {
       this.email = email;
       this.password = password;
       this.cf = cf;
+      this.scheda = scheda;
     }
   }
   

@@ -14,10 +14,14 @@ export class UserComponent implements OnInit {
   showForm: boolean = false;
   isUpdate: boolean = false;
   selectedUser: User = {
-    id: 0, nome: '', cognome: '', email: '',
-    anno_nascita: '', // Assicurati che `anno_nascita` sia di tipo string
+    id: 0, 
+    nome: '',
+    cognome: '', 
+    email: '',
+    anno_nascita: '', 
     password: '',
-    cf: ''
+    cf: '',
+    scheda: [] 
   };
 
   constructor(private userService: UserService, private router: Router) { }
@@ -51,18 +55,17 @@ export class UserComponent implements OnInit {
 
   addUser() {
     this.isUpdate = false;
-    this.selectedUser = { id: 0, nome: '', cognome: '', email: '', anno_nascita: '', password: '', cf: '' };
+    this.selectedUser = { id: 0, nome: '', cognome: '', email: '', anno_nascita: '', password: '', cf: '', scheda: [] };
     this.showForm = true;
   }
 
   updateUser(user: User) {
     this.isUpdate = true;
     this.selectedUser = { ...user };
-    this.selectedUser.anno_nascita = this.formatDateForInput(this.selectedUser.anno_nascita); // Converti la data nel formato YYYY-MM-DD
+    this.selectedUser.anno_nascita = this.formatDateForInput(this.selectedUser.anno_nascita);
     this.showForm = true;
   }
-  
-  // Aggiungi un nuovo metodo per formattare la data nel formato YYYY-MM-DD
+
   private formatDateForInput(date: string): string {
     if (!date) return '';
     const d = new Date(date);
@@ -73,18 +76,15 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit() {
-    // Verifica il formato della data prima di convertire
     if (this.selectedUser.anno_nascita && this.isValidDateFormat(this.selectedUser.anno_nascita)) {
       const parts = this.selectedUser.anno_nascita.split('/');
       const day = +parts[0];
-      const month = +parts[1] - 1; // I mesi in JavaScript sono indicizzati da 0
+      const month = +parts[1] - 1;
       const year = +parts[2];
-      
-      // Creiamo una data mantenendo l'offset del fuso orario locale
       const date = new Date(year, month, day, 12, 0, 0);
       this.selectedUser.anno_nascita = date.toISOString().split('T')[0];
     }
-  
+
     if (this.isUpdate) {
       this.userService.updateUser(this.selectedUser.id, this.selectedUser).subscribe(
         () => {
@@ -97,7 +97,7 @@ export class UserComponent implements OnInit {
         }
       );
     } else {
-      this.userService.addUser(this.selectedUser).subscribe(
+      this.userService.insertUser(this.selectedUser).subscribe(
         () => {
           console.log('User added successfully');
           this.loadUsers();
@@ -115,7 +115,7 @@ export class UserComponent implements OnInit {
   }
 
   navigateToRegistration() {
-    this.router.navigate(['/registrazione']); // Naviga verso l'URL /registrazione
+    this.router.navigate(['/registrazione']);
   }
 
   formatDate(date: string): string {
@@ -127,9 +127,8 @@ export class UserComponent implements OnInit {
     return `${day}/${month}/${year}`;
   }
 
-  // Funzione per validare il formato della data
   private isValidDateFormat(date: string): boolean {
-    const regex = /^\d{2}\/\d{2}\/\d{4}$/; // dd/MM/yyyy
+    const regex = /^\d{2}\/\d{2}\/\d{4}$/;
     return regex.test(date);
   }
 }

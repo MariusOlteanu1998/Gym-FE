@@ -1,0 +1,67 @@
+.scheda-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.scheda-table th, .scheda-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.scheda-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.scheda-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.scheda-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.scheda-form h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.scheda-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.scheda-form input, .scheda-form select {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.scheda-form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.scheda-form button.btn-cancel {
+  background-color: #f44336;
+}
+
+.scheda-form button:hover {
+  opacity: 0.8;
+}

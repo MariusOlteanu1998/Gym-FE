@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './component/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrazioneComponent } from './component/registrazione/registrazione.component';
+import { SchedaComponent } from './component/scheda/scheda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     RegistrazioneComponent,
+    SchedaComponent,
   ],
   imports: [
     BrowserModule,

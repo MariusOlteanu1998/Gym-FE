@@ -16,7 +16,8 @@ export class RegistrazioneComponent {
     password: '',
     cf: '',
     id: 0,
-    anno_nascita: ''
+    anno_nascita: '',
+    scheda: []
   };
 
   constructor(private userService: UserService) {}
@@ -44,7 +45,8 @@ export class RegistrazioneComponent {
       password: '',
       cf: '',
       id: 0,
-      anno_nascita: ''
+      anno_nascita: '',
+      scheda: []
     };
   }
 }

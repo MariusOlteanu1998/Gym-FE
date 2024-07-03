@@ -4,10 +4,10 @@ import { Observable } from "rxjs";
 import { User } from "src/app/model/user/user";
 
 @Injectable({
-  providedIn: 'root' // Assicura che il servizio sia disponibile a livello di root
+  providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080/users'; // Sostituisci con l'URL del tuo backend
+  private baseUrl = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient) { }
 
@@ -29,9 +29,5 @@ export class UserService {
 
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
-  }
-
-  addUser(selectedUser: User): Observable<User> {
-    return this.http.post<User>(`${this.baseUrl}`, selectedUser);
   }
 }
