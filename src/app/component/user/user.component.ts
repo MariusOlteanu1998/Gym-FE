@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
     anno_nascita: '', 
     password: '',
     cf: '',
-    scheda: [] 
+    //scheda: [] 
   };
 
   constructor(private userService: UserService, private router: Router) { }
@@ -55,7 +55,7 @@ export class UserComponent implements OnInit {
 
   addUser() {
     this.isUpdate = false;
-    this.selectedUser = { id: 0, nome: '', cognome: '', email: '', anno_nascita: '', password: '', cf: '', scheda: [] };
+    this.selectedUser = { id: 0, nome: '', cognome: '', email: '', anno_nascita: '', password: '', cf: ''/*, scheda: []*/ };
     this.showForm = true;
   }
 

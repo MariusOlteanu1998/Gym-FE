@@ -58,9 +58,9 @@
     <label for="users">Utenti Associati:</label>
     <select id="users" multiple [(ngModel)]="selectedScheda.users" name="users" required>
       <option *ngFor="let user of users" [ngValue]="user">{{ user.nome }} {{ user.cognome }}</option>
-    </select>
+    </select>-->
     
     <button type="submit" class="btn-submit">{{ isUpdate ? 'Update' : 'Add' }}</button>
-    <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>-->
+    <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
   </form>
 </div>

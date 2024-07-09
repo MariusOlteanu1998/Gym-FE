@@ -8,7 +8,7 @@ export class User {
     email: string;
     password: string;
     cf: string;
-    scheda: Scheda[];
+    //scheda: Scheda[];
   
     constructor(
     id: number,
@@ -18,7 +18,7 @@ export class User {
     email: string,
     password: string, 
     cf: string, 
-    scheda: Scheda[]
+    //scheda: Scheda[]
     ) 
     {
       this.id = id;
@@ -28,7 +28,7 @@ export class User {
       this.email = email;
       this.password = password;
       this.cf = cf;
-      this.scheda = scheda;
+      //this.scheda = scheda;
     }
   }
   

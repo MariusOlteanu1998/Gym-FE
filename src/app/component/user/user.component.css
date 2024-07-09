@@ -1,51 +1,51 @@
 .user-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .user-table th, .user-table td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .user-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .user-table tbody tr:hover {
-    background-color: #f2f2f2;
-  }
-  
-  .btn-add, .btn-submit, .btn-cancel {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .btn-update, .btn-delete {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  .btn-add:hover, .btn-submit:hover, .btn-cancel:hover, .btn-update:hover, .btn-delete:hover {
-    opacity: 0.8;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.user-table th, .user-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.btn-add, .btn-submit, .btn-cancel {
+  background-color: rgb(0, 255, 157);;
+  color: rgb(63, 63, 63);
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-update, .btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-add:hover, .btn-submit:hover, .btn-cancel:hover, .btn-update:hover, .btn-delete:hover {
+  opacity: 0.8;
+}
