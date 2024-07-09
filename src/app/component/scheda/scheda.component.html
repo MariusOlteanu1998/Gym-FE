@@ -1,0 +1,66 @@
+<div *ngIf="!showForm">
+  <h2>Schede List</h2>
+  <table class="scheda-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data Creazione</th>
+        <th>Data Fine</th>
+        <th>Esercizi</th>
+        <th>Reps</th>
+        <th>Recupero</th>
+        <th>Utenti Associati</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let scheda of schede">
+        <td>{{ scheda.id }}</td>
+        <td>{{ formatDate(scheda.data_creazione) }}</td>
+        <td>{{ formatDate(scheda.data_fine) }}</td>
+        <td>{{ scheda.esercizi}}</td>
+        <td>{{ scheda.reps }}</td>
+        <td>{{ scheda.recupero }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let user of scheda.users">{{ user.nome }} {{ user.cognome }}</li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn-delete" (click)="deleteScheda(scheda.id)">Delete</button>
+          <button class="btn-update" (click)="updateScheda(scheda)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn-add" (click)="addScheda()">Add Scheda</button>
+</div>
+
+<div *ngIf="showForm" class="scheda-form">
+  <h3>{{ isUpdate ? 'Update Scheda' : 'Add Scheda' }}</h3>
+  <form (ngSubmit)="onSubmit()">
+    <label for="data_creazione">Data Creazione:</label>
+    <input id="data_creazione" type="date" [(ngModel)]="selectedScheda.data_creazione" name="data_creazione" required>
+    
+    <label for="data_fine">Data Fine:</label>
+    <input id="data_fine" type="date" [(ngModel)]="selectedScheda.data_fine" name="data_fine" required>
+    
+    <label for="esercizi">Esercizi:</label>
+    <input id="esercizi" [(ngModel)]="selectedScheda.esercizi" name="esercizi" required>
+    
+    <label for="reps">Reps:</label>
+    <input id="reps" [(ngModel)]="selectedScheda.reps" name="reps" required>
+    
+    <label for="recupero">Recupero:</label>
+    <input id="recupero" [(ngModel)]="selectedScheda.recupero" name="recupero" required>
+    
+    <!-- Utenti Associati 
+    <label for="users">Utenti Associati:</label>
+    <select id="users" multiple [(ngModel)]="selectedScheda.users" name="users" required>
+      <option *ngFor="let user of users" [ngValue]="user">{{ user.nome }} {{ user.cognome }}</option>
+    </select>-->
+    
+    <button type="submit" class="btn-submit">{{ isUpdate ? 'Update' : 'Add' }}</button>
+    <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
+  </form>
+</div>
