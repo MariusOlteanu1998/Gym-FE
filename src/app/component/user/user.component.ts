@@ -41,8 +41,8 @@ export class UserComponent implements OnInit {
     );
   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(
+  deleteUserById(id: number) {
+    this.userService.deleteUserById(id).subscribe(
       () => {
         console.log('User deleted successfully');
         this.loadUsers();
@@ -59,7 +59,7 @@ export class UserComponent implements OnInit {
     this.showForm = true;
   }
 
-  updateUser(user: User) {
+  updateUserById(user: User) {
     this.isUpdate = true;
     this.selectedUser = { ...user };
     this.selectedUser.anno_nascita = this.formatDateForInput(this.selectedUser.anno_nascita);
@@ -86,7 +86,7 @@ export class UserComponent implements OnInit {
     }
 
     if (this.isUpdate) {
-      this.userService.updateUser(this.selectedUser.id, this.selectedUser).subscribe(
+      this.userService.updateUserById(this.selectedUser.id, this.selectedUser).subscribe(
         () => {
           console.log('User updated successfully');
           this.loadUsers();
