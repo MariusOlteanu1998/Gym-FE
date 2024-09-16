@@ -20,7 +20,7 @@ export class SchedaService {
     return this.http.get<Scheda>(`${this.baseUrl}/${id}`);
   }
 
-  updateScheda(id: number, scheda: Scheda): Observable<Scheda> {
+  updateSchedaById(id: number, scheda: Scheda): Observable<Scheda> {
     return this.http.put<Scheda>(`${this.baseUrl}/${id}`, scheda);
   }
 
@@ -28,7 +28,7 @@ export class SchedaService {
     return this.http.post<Scheda>(`${this.baseUrl}`, scheda);
   }
 
-  deleteScheda(id: number): Observable<any> {
+  deleteSchedaById(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

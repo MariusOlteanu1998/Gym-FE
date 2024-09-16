@@ -41,13 +41,14 @@ export class SchedaComponent implements OnInit {
   }
 
   deleteScheda(id: number) {
-    this.schedaService.deleteScheda(id).subscribe(
-      () => {
-        console.log('Scheda deleted successfully');
+    console.log('Deleting scheda with ID:', id);
+    this.schedaService.deleteSchedaById(id).subscribe(
+      response => {
+        console.log('Scheda deleted successfully:', response);
         this.loadSchede();
       },
       error => {
-        console.log('Error deleting scheda: ', error);
+        console.error('Error deleting scheda:', error);
       }
     );
   }
@@ -75,14 +76,15 @@ export class SchedaComponent implements OnInit {
 
   onSubmit() {
     if (this.isUpdate) {
-      this.schedaService.updateScheda(this.selectedScheda.id, this.selectedScheda).subscribe(
-        () => {
-          console.log('Scheda updated successfully');
+      console.log('Updating scheda with ID:', this.selectedScheda.id);
+      this.schedaService.updateSchedaById(this.selectedScheda.id, this.selectedScheda).subscribe(
+        response => {
+          console.log('Scheda updated successfully:', response);
           this.loadSchede();
           this.showForm = false;
         },
         error => {
-          console.log('Error updating scheda: ', error);
+          console.error('Error updating scheda:', error);
         }
       );
     } else {
