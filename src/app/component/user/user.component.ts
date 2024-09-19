@@ -59,7 +59,7 @@ export class UserComponent implements OnInit {
     this.showForm = true;
   }
 
-  updateUser(user: User) {
+  updateUserById(user: User) {
     this.isUpdate = true;
     this.selectedUser = { ...user };
     this.selectedUser.anno_nascita = this.formatDateForInput(this.selectedUser.anno_nascita);

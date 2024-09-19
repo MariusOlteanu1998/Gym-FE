@@ -9,7 +9,7 @@
         <th>Esercizi</th>
         <th>Reps</th>
         <th>Recupero</th>
-        <th>Utenti Associati</th>
+        <!-- <th>Utenti Associati</th> -->
         <th>Azioni</th>
       </tr>
     </thead>
@@ -21,11 +21,11 @@
         <td>{{ scheda.esercizi}}</td>
         <td>{{ scheda.reps }}</td>
         <td>{{ scheda.recupero }}</td>
-        <td>
+        <!-- <td>
           <ul>
             <li *ngFor="let user of scheda.users">{{ user.nome }} {{ user.cognome }}</li>
           </ul>
-        </td>
+        </td> -->
         <td>
           <button class="btn-delete" (click)="deleteScheda(scheda.id)">Delete</button>
           <button class="btn-update" (click)="updateScheda(scheda)">Update</button>

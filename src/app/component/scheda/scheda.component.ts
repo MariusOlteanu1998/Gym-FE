@@ -47,7 +47,7 @@ export class SchedaComponent implements OnInit {
         this.loadSchede();
       },
       error => {
-        console.log('Error deleting scheda: ', error);
+        console.error('Error deleting scheda:', error);
       }
     );
   }
@@ -82,7 +82,7 @@ export class SchedaComponent implements OnInit {
           this.showForm = false;
         },
         error => {
-          console.log('Error updating scheda: ', error);
+          console.error('Error updating scheda:', error);
         }
       );
     } else {
