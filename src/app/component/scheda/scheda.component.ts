@@ -41,7 +41,7 @@ export class SchedaComponent implements OnInit {
   }
 
   deleteScheda(id: number) {
-    this.schedaService.deleteScheda(id).subscribe(
+    this.schedaService.deleteSchedaById(id).subscribe(
       () => {
         console.log('Scheda deleted successfully');
         this.loadSchede();
@@ -75,7 +75,7 @@ export class SchedaComponent implements OnInit {
 
   onSubmit() {
     if (this.isUpdate) {
-      this.schedaService.updateScheda(this.selectedScheda.id, this.selectedScheda).subscribe(
+      this.schedaService.updateSchedaById(this.selectedScheda.id, this.selectedScheda).subscribe(
         () => {
           console.log('Scheda updated successfully');
           this.loadSchede();

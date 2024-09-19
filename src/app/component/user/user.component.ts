@@ -42,7 +42,7 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    this.userService.deleteUser(id).subscribe(
+    this.userService.deleteUserById(id).subscribe(
       () => {
         console.log('User deleted successfully');
         this.loadUsers();
@@ -86,7 +86,7 @@ export class UserComponent implements OnInit {
     }
 
     if (this.isUpdate) {
-      this.userService.updateUser(this.selectedUser.id, this.selectedUser).subscribe(
+      this.userService.updateUserById(this.selectedUser.id, this.selectedUser).subscribe(
         () => {
           console.log('User updated successfully');
           this.loadUsers();
