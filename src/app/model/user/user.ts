@@ -4,7 +4,7 @@ export class User {
     id: number;
     nome: string;
     cognome: string;
-    anno_nascita: string;
+    anno_nascita: string | Date; // Cambiato a string | Date
     email: string;
     password: string;
     cf: string;
@@ -14,7 +14,7 @@ export class User {
     id: number,
     nome: string, 
     cognome: string, 
-    anno_nascita: string, 
+    anno_nascita: string | Date, // Cambiato a string | Date
     email: string,
     password: string, 
     cf: string, 

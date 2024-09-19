@@ -17,8 +17,8 @@
       <tr *ngFor="let scheda of schede">
         <td>{{ scheda.id }}</td>
         <td>{{ formatDate(scheda.data_creazione) }}</td>
-        <td>{{ formatDate(scheda.data_fine) }}</td>
-        <td>{{ scheda.esercizi}}</td>
+        <td>{{ formatDate(scheda.data_fine) }}</td>        
+        <td>{{ scheda.esercizio}}</td>
         <td>{{ scheda.reps }}</td>
         <td>{{ scheda.recupero }}</td>
         <!-- <td>
@@ -46,8 +46,8 @@
     <input id="data_fine" type="date" [(ngModel)]="selectedScheda.data_fine" name="data_fine" required>
     
     <label for="esercizi">Esercizi:</label>
-    <input id="esercizi" [(ngModel)]="selectedScheda.esercizi" name="esercizi" required>
-    
+    <input id="esercizi" [(ngModel)]="selectedScheda.esercizio" name="esercizi" required>
+
     <label for="reps">Reps:</label>
     <input id="reps" [(ngModel)]="selectedScheda.reps" name="reps" required>
     
@@ -64,3 +64,4 @@
     <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
   </form>
 </div>
+

@@ -17,7 +17,7 @@ export class SchedaComponent implements OnInit {
     id: 0,
     data_creazione: new Date(),
     data_fine: new Date(),
-    esercizi: [],
+    esercizio: '',
     reps: '',
     recupero: '',
     users: []
@@ -58,7 +58,7 @@ export class SchedaComponent implements OnInit {
       id: 0,
       data_creazione: new Date(),
       data_fine: new Date(),
-      esercizi: [],
+      esercizio: '',
       reps: '',
       recupero: '',
       users: []
@@ -69,11 +69,32 @@ export class SchedaComponent implements OnInit {
   updateScheda(scheda: Scheda) {
     this.isUpdate = true;
     this.selectedScheda = { ...scheda };
-    // Potresti voler fare altre operazioni di preparazione qui, se necessario
-    this.showForm = true;
+
+    if (this.selectedScheda.data_creazione instanceof Date) {
+        this.selectedScheda.data_creazione = this.formatDateForInput(this.selectedScheda.data_creazione.toISOString());
+    } else {
+        this.selectedScheda.data_creazione = this.formatDateForInput(this.selectedScheda.data_creazione);
+    }
+    
+    if (this.selectedScheda.data_fine instanceof Date) {
+        this.selectedScheda.data_fine = this.formatDateForInput(this.selectedScheda.data_fine.toISOString());
+    } else {
+        this.selectedScheda.data_fine = this.formatDateForInput(this.selectedScheda.data_fine);
+    }
+      this.showForm = true;
+    }
+
+  private formatDateForInput(date: string): string {
+    if (!date) return '';
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = (d.getMonth() + 1).toString().padStart(2, '0');
+    const day = d.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   onSubmit() {
+    console.log(this.selectedScheda);  // Verifica il contenuto dell'oggetto prima dell'invio
     if (this.isUpdate) {
       this.schedaService.updateSchedaById(this.selectedScheda.id, this.selectedScheda).subscribe(
         () => {
@@ -107,11 +128,18 @@ export class SchedaComponent implements OnInit {
     this.router.navigate(['/registrazione']);
   }
 
-  formatDate(date: Date): string {
-    const d = new Date(date);
+  formatDate(date: string | Date): string {
+    let d: Date;
+    if (typeof date === 'string') {
+      d = new Date(date);
+    } else {
+      d = date;
+    }
     const year = d.getFullYear();
     const month = (d.getMonth() + 1).toString().padStart(2, '0');
     const day = d.getDate().toString().padStart(2, '0');
     return `${day}/${month}/${year}`;
   }
+  
 }
+
